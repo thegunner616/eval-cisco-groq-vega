@@ -1,0 +1,1 @@
+access-list 23 deny ip 192.168.2.0 0.0.0.255 any ! ACL de acceso denegado para origen 192.168.2.0/24 hacia cualquier destino

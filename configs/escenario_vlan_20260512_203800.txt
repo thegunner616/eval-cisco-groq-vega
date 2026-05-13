@@ -1,0 +1,7 @@
+vlan 3
+name vlan_clases
+!
+interface g0/4
+switchport mode access
+switchport access vlan 3
+!

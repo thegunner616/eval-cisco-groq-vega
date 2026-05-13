@@ -1,0 +1,8 @@
+vlan 4
+name cisco
+!
+interface range fa0/3
+switchport mode access
+switchport access vlan 4
+!
+exit
