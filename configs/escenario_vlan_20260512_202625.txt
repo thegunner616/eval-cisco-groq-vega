@@ -1,8 +1,0 @@
-vlan 34
-name Cisco !
-vlan 34
-exit
-interface range gigabitethernet 0/1-0/80
-switchport mode access
-switchport access vlan 34
-exit
