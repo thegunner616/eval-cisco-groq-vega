@@ -1,0 +1,7 @@
+vlan 45
+name cisco
+!
+interface fa0/8
+switchport mode access
+switchport access vlan 45
+!

@@ -1,0 +1,36 @@
+configure terminal
+ip subnet-zero
+!
+! Configuración de la red base
+!
+ip address 192.168.1.1 255.255.255.252
+!
+! Calculo de subredes
+!
+! 2^2 - 2 = 2 subredes posibles con /30
+! Necesitamos 3 subredes, por lo que debemos cambiar la mascara de red
+!
+! Nueva mascara de red /29
+!
+! 192.168.1.0/29
+! 192.168.1.8/29
+! 192.168.1.16/29
+!
+! Configuración de las interfaces
+!
+interface FastEthernet0/0
+ip address 192.168.1.1 255.255.255.248
+no shutdown
+!
+interface FastEthernet0/1
+ip address 192.168.1.9 255.255.255.248
+no shutdown
+!
+interface FastEthernet0/2
+ip address 192.168.1.17 255.255.255.248
+no shutdown
+!
+end
+!
+write memory
+!

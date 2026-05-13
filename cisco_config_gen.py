@@ -5,9 +5,8 @@ from groq import APIConnectionError
 from dotenv import load_dotenv
 from datetime import datetime
 
-# =========================
 # CARGAR VARIABLES DE ENTORNO
-# =========================
+
 
 load_dotenv()
 
@@ -17,38 +16,31 @@ if not api_key:
     print("ERROR: No se encontró GROQ_API_KEY en el archivo .env")
     exit()
 
-# =========================
 # CLIENTE GROQ
-# =========================
+
 
 client = Groq(api_key=api_key)
 
-# =========================
 # CREAR CARPETA CONFIGS
-# =========================
 
 if not os.path.exists("configs"):
     os.makedirs("configs")
 
-# =========================
 # SYSTEM PROMPT
-# =========================
 
 SYSTEM_PROMPT = """
-Eres un experto en Cisco IOS.
+desde ahora eres un experto en cisco ios
 
-Debes responder SOLO configuraciones Cisco IOS válidas.
+responde solo configuraciones cisco IOS validas
 
-NO expliques nada.
+NO debes explicar nada.
 NO uses markdown.
 NO uses bloques ```.
 
 Puedes usar comentarios IOS con !.
 """
 
-# =========================
-# GUARDAR CONFIGURACIÓN
-# =========================
+#Guardar la configuracion 
 
 def guardar_config(tipo, contenido):
 
@@ -61,9 +53,7 @@ def guardar_config(tipo, contenido):
 
     print(f"\n\nConfiguración guardada en: {nombre_archivo}")
 
-# =========================
 # GENERAR CONFIGURACIÓN
-# =========================
 
 def generar_config(prompt_usuario, tipo):
 
@@ -122,17 +112,14 @@ def generar_config(prompt_usuario, tipo):
     except Exception as e:
         print(f"\nERROR GENERAL: {e}")
 
-# =========================
 # VALIDAR VLAN
-# =========================
+
 
 def validar_vlan(vlan):
 
     return 1 <= vlan <= 4094
 
-# =========================
 # ESCENARIO VLAN
-# =========================
 
 def escenario_vlan():
 
@@ -178,9 +165,8 @@ def escenario_vlan():
     except ValueError:
         print("ERROR: VLAN debe ser numérica")
 
-# =========================
+
 # ESCENARIO OSPF
-# =========================
 
 def escenario_ospf():
 
@@ -226,9 +212,7 @@ def escenario_ospf():
     except ValueError:
         print("ERROR: Debe ingresar valores válidos")
 
-# =========================
 # ESCENARIO SUBNETTING
-# =========================
 
 def escenario_subnet():
 
@@ -275,9 +259,7 @@ def escenario_subnet():
     except ValueError:
         print("ERROR: Debe ingresar valores numéricos válidos")
 
-# =========================
 # ESCENARIO ACL
-# =========================
 
 def escenario_acl():
 
@@ -334,9 +316,7 @@ def escenario_acl():
     except ValueError:
         print("ERROR: Número ACL inválido")
 
-# =========================
 # MENÚ PRINCIPAL
-# =========================
 
 def menu():
 
@@ -370,9 +350,7 @@ def menu():
         else:
             print("ERROR: Opción inválida")
 
-# =========================
 # MAIN
-# =========================
 
 if __name__ == "__main__":
     menu()
